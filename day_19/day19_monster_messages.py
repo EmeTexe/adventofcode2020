@@ -22,7 +22,6 @@ with open('day19_monster_messages.txt', 'r') as f:
                 rule = line.rstrip().split(': ')[1].split('"')[1]
                 rules[n] = rule
 
-print(rules['126'])
 valid_rules = {}
 for key, value in rules.items():
     if type(value) == str:
