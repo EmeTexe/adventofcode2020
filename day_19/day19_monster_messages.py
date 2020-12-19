@@ -78,7 +78,7 @@ for m in messages:
         is_correct = True
     if is_correct:
         n += 1
-print(n)
+print('part 1 :', n)
 
 """
 8: 42 | 42 8
@@ -106,13 +106,11 @@ for r in all_rules_str.split(' | '):
 
 n = 0
 for x, message in enumerate(messages):
-    # print(x)
     if len(message) % 8 != 0 or len(message) < 24:
         print(message)
         continue
     n_combi = int(len(message) / 8)
     m_split = [message[i:i + 8] for i in range(0, len(message), 8)]
-    # print(m_split)
     is_correct = False
     for rule in rules0[n_combi]:
         for i, word in enumerate(m_split):
@@ -124,8 +122,8 @@ for x, message in enumerate(messages):
     if is_correct:
         n += 1
 
-print(n)
-print(time.time() - t1)
+print('part 2 :', n)
+print('computation time :', time.time() - t1)
 
 """had so much trouble, took me hours to figure out how to do it, would surely have been easier and quicker to learn 
 regex (that i don't know how to use yet) and write the code... But like bethesda said : 'it just works'
