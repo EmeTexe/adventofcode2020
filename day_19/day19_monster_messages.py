@@ -64,10 +64,21 @@ while len(rules) > (len(valid_rules) + 3):
             if can_become_valid:
                 valid_rules[n] = make_rule_valid(rule, valid_rules)
 
-print('done')
 n = 0
-
-len8, max8, len11, max11 = 8, 80, 16, 88
+rules0 = [42, 42, 31]
+for m in messages:
+    if len(m) / 8 != 3:
+        continue
+    m_split = [m[i:i + 8] for i in range(0, len(m), 8)]
+    is_correct = False
+    for i, word in enumerate(m_split):
+        if word not in valid_rules[str(rules0[i])]:
+            break
+    else:
+        is_correct = True
+    if is_correct:
+        n += 1
+print(n)
 
 """
 8: 42 | 42 8
@@ -117,4 +128,5 @@ print(n)
 print(time.time() - t1)
 
 """had so much trouble, took me hours to figure out how to do it, would surely have been easier and quicker to learn 
-regex (that i don't know how to use yet) and write the code... But like bethesda said : 'it just works'"""
+regex (that i don't know how to use yet) and write the code... But like bethesda said : 'it just works'
+And it works fast, my solution take only 0.012s, or 12ms"""
